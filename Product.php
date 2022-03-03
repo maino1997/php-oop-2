@@ -7,7 +7,6 @@ class Product
     public $product_name;
     public $product_price;
     public $discount;
-    protected $log_in;
     public $name;
 
     public function __construct($name, $product_name, $product_price)
@@ -31,6 +30,6 @@ class Product
 
     public function setPrice($product_price)
     {
-        $this->product_price = $product_price - ($product_price / $this->discount);
+        $this->product_price = $product_price - ($product_price / 20);
     }
 }
