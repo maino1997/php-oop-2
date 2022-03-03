@@ -1,36 +1,36 @@
 <?php
 
-require_once __DIR__ . '/Shop.php';
+// require_once __DIR__ . '/Shop.php';
 
-class Product extends Shop
+class Product
 {
     public $product_name;
     public $product_price;
     public $discount;
+    protected $log_in;
+    public $name;
 
-    public function __construct($log_in, $name, $product_name, $product_price, $discount)
+    public function __construct($name, $product_name, $product_price)
     {
-        parent::__construct($log_in, $name);
+        $this->name = $name;
         $this->product_name = $product_name;
         $this->setPrice($product_price);
-        $this->setDiscount($discount);
+        $this->setDiscount();
     }
 
-    public function setDiscount($discount)
+
+
+    public function setDiscount()
     {
-        if ($this->log_in) {
-            $this->discount = $discount;
-            return 20;
+        if (true) {
+            $this->discount = 20;
         } else {
-            $this->discount = $discount;
-            return 0;
+            $this->discount = 0;
         }
     }
 
     public function setPrice($product_price)
     {
-        $this->product_price = $product_price / ($this->discount);
+        $this->product_price = $product_price - ($product_price / $this->discount);
     }
 }
-
-echo $my_product = new Product(true, "sasha", "croccantini", "50", 20);
