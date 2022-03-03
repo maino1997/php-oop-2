@@ -8,13 +8,14 @@ class Card
 
     public function __construct($balance, $number, $payment)
     {
-        $this->balance = $balance;
+        $this->setBalance($balance, $payment);
         $this->number = $number;
         $this->payment = $payment;
     }
 
-    public function pay()
+    public function setBalance($balance, $payment)
     {
-        $this->balance -= $this->payment;
+        $this->balance = $balance;
+        $this->balance = $this->balance - $payment;
     }
 }
