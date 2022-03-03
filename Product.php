@@ -1,27 +1,26 @@
 <?php
 
-// require_once __DIR__ . '/Shop.php';
+require_once __DIR__ . '/Shop.php';
 
-class Product
+class Product extends Shop
 {
     public $product_name;
     public $product_price;
     public $discount;
-    public $name;
 
     public function __construct($name, $product_name, $product_price)
     {
-        $this->name = $name;
+        parent::__construct($name);
         $this->product_name = $product_name;
         $this->setPrice($product_price);
-        $this->setDiscount();
+        $this->setDiscount($product_price);
     }
 
 
 
-    public function setDiscount()
+    public function setDiscount($name)
     {
-        if (true) {
+        if (strlen($name) > 0) {
             $this->discount = 20;
         } else {
             $this->discount = 0;
@@ -30,6 +29,6 @@ class Product
 
     public function setPrice($product_price)
     {
-        $this->product_price = $product_price - ($product_price / 20);
+        $this->product_price = $product_price - ($product_price / 100 * ($this->discount));
     }
 }
