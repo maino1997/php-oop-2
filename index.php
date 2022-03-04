@@ -5,14 +5,23 @@ include_once __DIR__ . '/Shop.php';
 include_once __DIR__ . '/Person.php';
 include_once __DIR__ . '/Card.php';
 include_once __DIR__ . '/User.php';
+include_once __DIR__ . '/Food.php';
+include_once __DIR__ . '/Toy.php';
 
 
 
-$my_person = new Person("sasha", 52);
+
+
+$my_person = new Person("", 52);
 
 $my_product = new Product($my_person->name, "croccantini", 70);
-$my_product1 = new Product($my_person->name, "cuccia", 70);
-$my_product2 = new Product($my_person->name, "gioco", 70);
+
+
+$my_food = new Food($my_person->name, "croccantini", 25, ['carne', 'pesce'], 'croccante', '40g');
+$my_toy = new Toy($my_person->name, "croccantini", 45, 'yellow', 'carne', '50g');
+
+
+
 $my_product->setDiscount();
 $my_product->setPartial($my_product->product_price);
 $my_product->setPrice($my_product->product_price);
@@ -25,8 +34,10 @@ $my_neg = new Shop($my_person->name);
 
 
 var_dump($my_product);
-var_dump($my_product1);
-var_dump($my_product2);
+
+
+var_dump($my_food);
+var_dump($my_toy);
 var_dump($my_product->discount);
 
 
