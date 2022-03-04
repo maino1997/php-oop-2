@@ -20,13 +20,13 @@ class Card
 
     public function setBalance($balance, $payment)
     {
-        // if (true) {
-        //     $this->balance = $balance;
-        //     return false;
-        // } else {
-        $this->balance = $balance;
-        $this->balance = $this->balance - $payment;
-        return true;
-        // }
+        if ($this->expiration_date <= $this->date) {
+            $this->balance = $balance;
+            return false;
+        } else {
+            $this->balance = $balance;
+            $this->balance = $this->balance - $payment;
+            return true;
+        }
     }
 }

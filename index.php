@@ -16,7 +16,8 @@ $my_product2 = new Product($my_person->name, "gioco", 70);
 $my_product->setDiscount();
 $my_product->setPartial($my_product->product_price);
 $my_product->setPrice($my_product->product_price);
-$my_card = new Card(1000, 15466, $my_product->product_price, "2022-03-3");
+$my_card = new Card(1000, 15466, $my_product->product_price, "2022-03-6");
+$my_card->setBalance($my_card->balance, $my_card->payment);
 $my_user = new User($my_person->name, $my_person->age, $my_card);
 
 $my_neg = new Shop($my_person->name);
