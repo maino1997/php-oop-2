@@ -6,15 +6,16 @@ class Product extends Shop
 {
     public $product_name;
     public $product_price;
-    // public $partial;
+    public $partial;
     public $discount;
+    public $discounted_price;
 
     public function __construct($name, $product_name, $product_price)
     {
         parent::__construct($name);
         $this->product_name = $product_name;
         $this->setPrice($product_price);
-        $this->setDiscount();
+        $this->setPartial($product_price);
     }
 
 
@@ -28,13 +29,14 @@ class Product extends Shop
         }
     }
 
-    // public function setPartial()
-    // {
-    //     $this->partial = 
-    // }
+    public function setPartial($product_price)
+    {
+        $this->partial = ($product_price / 100 * ($this->discount));
+    }
 
     public function setPrice($product_price)
     {
-        $this->product_price = $product_price - ($product_price / 100 * ($this->discount));
+        $this->product_price = $product_price;
+        $this->product_price = $this->product_price - $this->partial;
     }
 }
