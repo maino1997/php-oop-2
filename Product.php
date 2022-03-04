@@ -6,6 +6,7 @@ class Product extends Shop
 {
     public $product_name;
     public $product_price;
+    // public $partial;
     public $discount;
 
     public function __construct($name, $product_name, $product_price)
@@ -13,19 +14,24 @@ class Product extends Shop
         parent::__construct($name);
         $this->product_name = $product_name;
         $this->setPrice($product_price);
-        $this->setDiscount($product_price);
+        $this->setDiscount();
     }
 
 
 
-    public function setDiscount($name)
+    public function setDiscount()
     {
-        if (strlen($name) > 0) {
+        if (strlen($this->name) > 0) {
             $this->discount = 20;
         } else {
             $this->discount = 0;
         }
     }
+
+    // public function setPartial()
+    // {
+    //     $this->partial = 
+    // }
 
     public function setPrice($product_price)
     {
