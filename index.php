@@ -45,7 +45,7 @@ $my_cart->setSum();
 $my_card = new Card(1000, 15466, $my_cart->getSum(), "2022-03-10");
 $my_card->setBalance($my_card->balance, $my_card->payment);
 $my_user = new User($my_person->name, $my_person->age, $my_card);
-$my_user->placeOrder();
+$my_user->placeOrder("pesce", 22);
 
 $my_neg = new Shop($my_person->name);
 

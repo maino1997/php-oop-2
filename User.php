@@ -14,9 +14,9 @@ class User extends Person
         $this->card = $card;
     }
 
-    public function placeOrder()
+    public function placeOrder($order_place, $order_price)
     {
-        $my_new_order = new Product($this->name, "pesce", 20);
+        $my_new_order = new Product($this->name, $order_place, $order_price);
         $my_new_order->setDiscount();
         $my_new_order->setPartial($my_new_order->product_price);
         $my_new_order->setPrice($my_new_order->product_price);
