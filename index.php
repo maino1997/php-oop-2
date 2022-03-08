@@ -9,12 +9,10 @@ include_once __DIR__ . '/Food.php';
 include_once __DIR__ . '/Toy.php';
 include_once __DIR__ . '/Cart.php';
 
-
-
-
-
-
 $my_person = new Person("sasha", 52);
+
+
+
 
 $my_product = new Product($my_person->name, "croccantini", 70);
 
@@ -47,10 +45,13 @@ $my_cart->setSum();
 $my_card = new Card(1000, 15466, $my_cart->getSum(), "2022-03-10");
 $my_card->setBalance($my_card->balance, $my_card->payment);
 $my_user = new User($my_person->name, $my_person->age, $my_card);
+$my_user->placeOrder();
 
 $my_neg = new Shop($my_person->name);
 
 
+
+var_dump($my_user);
 
 // var_dump($my_product);
 

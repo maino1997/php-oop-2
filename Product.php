@@ -8,7 +8,6 @@ class Product extends Shop
     public $product_price;
     public $partial;
     public $discount;
-    public $discounted_price;
 
     public function __construct($name, $product_name, $product_price)
     {
