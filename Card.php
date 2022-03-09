@@ -9,11 +9,10 @@ class Card
     public $date;
 
 
-    public function __construct($balance, $number, $payment, $expiration_date)
+    public function __construct($balance, $number, $expiration_date)
     {
-        $this->setBalance($balance, $payment);
+        $this->balance = $balance;
         $this->number = $number;
-        $this->payment = $payment;
         $this->expiration_date = strtotime($expiration_date);
         $this->date = strtotime(date("Y-m-d"));
     }
