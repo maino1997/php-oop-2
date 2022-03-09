@@ -3,7 +3,7 @@
 class Cart
 {
     private $total = [];
-    private $sum;
+    private $sum = 0;
 
     public function __construct($total)
     {
@@ -20,15 +20,15 @@ class Cart
         return $this->total;
     }
 
-    public function setSum()
-    {
-        foreach ($this->total as $price) {
-            $this->sum += $price;
-        }
-    }
+
 
     public function getSum()
     {
+        $this->sum = 0;
+        foreach ($this->total as $object) {
+            $price = $object->product_price;
+            $this->sum += $price;
+        }
         return $this->sum;
     }
 }

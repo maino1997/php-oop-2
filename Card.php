@@ -4,7 +4,6 @@ class Card
 {
     public $balance;
     public $number;
-    public $payment;
     public $expiration_date;
     public $date;
 
@@ -17,13 +16,11 @@ class Card
         $this->date = strtotime(date("Y-m-d"));
     }
 
-    public function setBalance($balance, $payment)
+    public function setBalance($payment)
     {
         if ($this->expiration_date <= $this->date) {
-            $this->balance = $balance;
             return false;
         } else {
-            $this->balance = $balance;
             $this->balance = $this->balance - $payment;
             return true;
         }

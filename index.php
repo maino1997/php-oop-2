@@ -38,29 +38,11 @@ $my_toy->setPrice($my_toy->product_price);
 $my_card = new Card(1000, 15466, "2022-03-10");
 
 $my_user = new User($my_person->getName(), $my_person->getAge(), $my_card);
+$my_user->placeOrder("pesce", 41);
 $my_cart = new Cart($my_user->orders);
-$my_user->placeOrder("pesce", 22);
 
-$my_cart->setSum();
-
-$my_card->setBalance($my_card->balance, $my_cart->getTotal());
-
-
-
-// $my_neg = new Shop($my_person->getName());
-
-
-
+$my_cart->getSum();
+$my_card->setBalance($my_cart->getSum());
 var_dump($my_user);
-
-var_dump($my_product);
-
-
-// var_dump($my_food);
-// var_dump($my_toy);
-// var_dump($my_product->discount);
 
 var_dump($my_cart);
-
-
-var_dump($my_user);
