@@ -35,15 +35,15 @@ $my_toy->setDiscount();
 $my_toy->setPartial($my_toy->product_price);
 $my_toy->setPrice($my_toy->product_price);
 
+$my_card = new Card(1000, 15466, "2022-03-10");
 
-$my_cart = new Cart($my_user->orders);
-$my_card = new Card(1000, 15466, $my_cart->getSum(), "2022-03-10");
 $my_user = new User($my_person->getName(), $my_person->getAge(), $my_card);
+$my_cart = new Cart($my_user->orders);
 $my_user->placeOrder("pesce", 22);
 
 $my_cart->setSum();
 
-$my_card->setBalance($my_card->balance, $my_card->payment);
+$my_card->setBalance($my_card->balance, $my_cart->getTotal());
 
 
 
