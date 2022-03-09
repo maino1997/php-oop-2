@@ -3,7 +3,7 @@
 class Cart
 {
     private $total = [];
-    private $sum = 0;
+    private $sum;
 
     public function __construct($total)
     {
