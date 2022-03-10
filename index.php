@@ -43,10 +43,11 @@ $my_cart = new Cart($my_user->orders);
 $my_order = new Order($my_card, $my_user, $my_cart->getTotal(), $my_cart);
 
 $my_cart->getSum();
-$my_order->setCardBalance();
+$my_order->setCardBalance($my_cart->getSum());
 
-var_dump($my_cart);
 var_dump($my_order);
+var_dump($my_cart);
+var_dump($my_card);
 
 
 
