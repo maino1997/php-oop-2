@@ -33,20 +33,22 @@ $my_person = new Person("sasha", 52);
 
 
 
-$my_card = new Card(1000, 15466, "2022-03-10");
+$my_card = new Card(1000, 15466, "2022-12-20");
 
 $my_user = new User($my_person->getName(), $my_person->getAge(), $my_card);
 $my_user->placeOrder("pesce", 41);
 $my_user->placeOrder("carne", 30);
 $my_user->placeOrder("carne", 400);
+$my_user->placeOrder("carne", 50);
 $my_cart = new Cart($my_user->orders);
 $my_order = new Order($my_card, $my_user, $my_cart->getTotal(), $my_cart);
 
 $my_cart->getSum();
+var_dump($my_cart->getSum());
 $my_order->setCardBalance($my_cart->getSum());
 
 var_dump($my_order);
-var_dump($my_cart);
+// var_dump($my_cart);
 var_dump($my_card);
 
 

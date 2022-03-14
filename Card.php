@@ -4,6 +4,7 @@ class Card
 {
     public $balance;
     public $number;
+    public $payment;
     public $expiration_date;
     public $date;
 
